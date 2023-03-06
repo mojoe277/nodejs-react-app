@@ -15,7 +15,7 @@ def buildImage() {
 def deployApp() {
     def dockerCmd = 'docker run -p 3080:3080 -d mojoe277/nodejs-app:njr-1.0 '
    sshagent(['ec2-server-key']) {
-        sh "ssh-o StrictHostKeyChecking+no ec2-user@35.180.251.121 ${dockerCmd}"
+        sh "ssh -o StrictHostKeyChecking=no ec2-user@35.180.251.121 ${dockerCmd}"
     }
 }
 return this
