@@ -1,13 +1,19 @@
-version: '3.8'
+# Use postgres/example user/password credentials
+version: '3.1'
+
 services:
-    nodejs-react-app:
+    nodejs-react-app:  
       image: ${IMAGE}
+      PORTS:
+      - 3080:3080
+    db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: example
+
+    adminer:
+      image: adminer
+      restart: always
       ports:
-        - 3080:3080
-    postgress:
-      image: postgress
-      port:
-        - 5432:5432
-      environment:
-        - POSTGRESS_PASSWORD=my-pwd
-     
+      - 8080:8080
