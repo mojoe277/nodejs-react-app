@@ -1,7 +1,7 @@
 version: '3.8'
 services:
     nodejs-react-app:
-      image: mojoe277/nodejs-app:njr-1.0
+      image: ${IMAGE}
       ports:
         - 3080:3080
     postgress:
