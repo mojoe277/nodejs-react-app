@@ -5,7 +5,7 @@ services:
     nodejs-react-app:  
       image: ${IMAGE}
       PORTS:
-      - 3080:3080
+      - 8080:8080
     db:
       image: postgres
       restart: always
@@ -15,4 +15,4 @@ services:
       image: adminer
       restart: always
       ports:
-      - 8080:8080
+      - 5432:5432
