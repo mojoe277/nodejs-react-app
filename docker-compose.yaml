@@ -7,11 +7,10 @@ services:
       PORTS:
       - 3080:3080
     db:
-    image: postgres
-    restart: always
-    environment:
-      POSTGRES_PASSWORD: example
-
+      image: postgres
+      restart: always
+      environment:
+         POSTGRES_PASSWORD: example
     adminer:
       image: adminer
       restart: always
