@@ -3,7 +3,7 @@ services:
     nodejs-react-app:
       image: mojoe277/nodejs-app:njr-1.0
       ports:
-        - 8080:8080
+        - 3080:3080
     postgress:
       image: postgress:13
       port:
