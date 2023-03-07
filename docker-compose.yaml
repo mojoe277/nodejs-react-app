@@ -5,7 +5,7 @@ services:
       ports:
         - 3080:3080
     postgress:
-      image: postgress:13
+      image: postgress
       port:
         - 5432:5432
       environment:
