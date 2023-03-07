@@ -1,7 +1,7 @@
 version: '3.8'
 services:
-    REACT-NODEJS-EXAMPLE:
-      image: ${IMAGE}
+    nodejs-react-app:
+      image: mojoe277/nodejs-app:njr-1.0
       ports:
         - 8080:8080
     postgress:
@@ -9,5 +9,5 @@ services:
       port:
         - 5432:5432
       environment:
-        - POSTGRESS_PASSWORD=MY-PWD 
+        - POSTGRESS_PASSWORD=my-pwd
      
