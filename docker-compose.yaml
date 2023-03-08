@@ -1,13 +1,12 @@
-# Use postgres/example user/password credentials
 version: '3.9'
 services:
     nodejs-react-app:  
       image: ${IMAGE}
-      PORTS:
-      - 8080:8080
+      ports:
+        - 8080:8080
     postgres:
       image: postgres
       ports:
         - 5432:5432
       environment:
-        - POSTGRES_PASSWORD=my-pwd    
+        - POSTGRES_PASSWORD=my-pwd  
