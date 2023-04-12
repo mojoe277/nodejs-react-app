@@ -29,7 +29,7 @@ pipeline {
             steps {
                 script {
                     echo "deploying docker image..."
-                    sh 'kubectl config view /var/jenkins_home/.kube/config'
+                    sh 'kubectl /var/jenkins_home/.kube/config view '
                 }
             }
         }
