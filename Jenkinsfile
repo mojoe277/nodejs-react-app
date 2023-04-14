@@ -29,7 +29,6 @@ pipeline {
             steps {
                 script {
                     echo "deploying docker image..."
-                    sh 'cd /var/jenkins_home'
                     sh 'kubectl create deployment nginx-deployment --image=nginx'
                 }
             }
