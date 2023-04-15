@@ -29,6 +29,10 @@ pipeline {
             steps {
                 script {
                     echo "deploying docker image..."
+                    withKubeConfig([credentialsId: 'kubernetes-config']) {
+                    sh 'curl -LO "https://storage.googleapis.com/kubernetes-release/release/v1.26.2/bin/linux/amd64/kubectl"'  
+                    sh 'chmod u+x ./kubectl'  
+                    sh './kubectl get pods'
                     sh 'kubectl create deployment nginx-deployment --image=nginx'
                 }
             }
