@@ -5,6 +5,9 @@ pipeline {
     tools {
         nodejs 'nodejs-19.9.0'
     }
+    environment {
+        IMAGE_NAME = 'njr-1.0'
+    }
     stages {
         stage('build') {
             steps {
@@ -15,9 +18,6 @@ pipeline {
             }
         }
         stage('build image') {
-            enironment {
-               IMAGE_NAME = 'app:1.0.0'
-            }
             steps {
                 script {
                     echo "building the docker image..."
