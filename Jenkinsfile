@@ -15,9 +15,17 @@ pipeline {
             }
         }
         stage('build image') {
+            enironment {
+               IMAGE_NAME = 1.0.0
+            }
             steps {
                 script {
                     echo "building the docker image..."
+                    echo "building the docker image..."
+                    withCredentials([usernamePassword(credentialsId: 'docker-hub-repo', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
+                        sh 'docker build -t mojoe277/nodejs-k8s:${IMAGE_NAME} .'
+                        sh "echo $PASS | docker login -u $USER --password-stdin"
+                        sh 'docker push mojoe277/nodejs-k8s:${IMAGE_NAME}'
                 }
             }
         }
@@ -25,11 +33,13 @@ pipeline {
             environment {
                 AWS_ACCESS_KEY_ID = credentials('jenkins-aws-key')
                 AWS_SECRET_ACCESS_KEY_ID = credentials('jenkins-aws-key')
+                APP_NAME = 'EKS-REACT-NODEJS-JENKINS'
             }
             steps {
                 script {
                     echo "deploying docker image..."
-                    sh 'kubectl create deployment nginx-deployment --image=nginx'
+                    sh 'envsubst < kubernetes/deployment.yaml | kubectl apply -f -'
+                    sh 'envsubst < kubernetes/service.yaml | kubectl apply -f -'
                 }
             }
         }
