@@ -6,7 +6,7 @@ pipeline {
         nodejs 'nodejs-19.9.0'
     }
     environment {
-        env.IMAGE_NAME = 'njr-1.0'
+        IMAGE_NAME = 'njr-1.0'
     }
     stages {
         stage('build') {
@@ -25,6 +25,7 @@ pipeline {
                         sh 'docker build -t mojoe277/nodejs-k8s:${IMAGE_NAME} .'
                         sh "echo $PASS | docker login -u $USER --password-stdin"
                         sh 'docker push mojoe277/nodejs-k8s:${IMAGE_NAME}'
+                    }
                 }
             }
         }
