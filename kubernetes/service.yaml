@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: EKS-REACT-NODEJS-JENKINS
+  name: $APP_NAME
 spec:
   selector:
-    app: EKS-REACT-NODEJS-JENKINS
+    app: $APP_NAME
   ports:
     - protocol: TCP
       port: 80

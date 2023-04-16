@@ -33,7 +33,7 @@ pipeline {
             environment {
                 AWS_ACCESS_KEY_ID = credentials('jenkins-aws-key')
                 AWS_SECRET_ACCESS_KEY_ID = credentials('jenkins-aws-key')
-                APP_NAME = 'EKS-REACT-NODEJS-JENKINS'
+                APP_NAME = 'k8s-nodejs-app'
             }
             steps {
                 script {
