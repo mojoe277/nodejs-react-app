@@ -6,7 +6,7 @@ pipeline {
         nodejs 'nodejs-19.9.0'
     }
     environment {
-        IMAGE_NAME = 'njr-1.0'
+        env.IMAGE_NAME = 'njr-1.0'
     }
     stages {
         stage('build') {
