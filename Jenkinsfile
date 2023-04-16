@@ -16,7 +16,7 @@ pipeline {
         }
         stage('build image') {
             enironment {
-               IMAGE_NAME = 1.0.0
+               IMAGE_NAME = '1.0.0'
             }
             steps {
                 script {
